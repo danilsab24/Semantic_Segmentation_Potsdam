@@ -1,6 +1,6 @@
 import torch 
 import torch.nn as nn
-import torchvision.transform.functional as F
+import torchvision.transforms.functional as F
 
 class DoubleCovolution(nn.module):
     def __init__(self, in_ch, out_ch):
