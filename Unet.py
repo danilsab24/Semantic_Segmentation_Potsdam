@@ -19,7 +19,7 @@ class DoubleCovolution(nn.Module):
 
 class UNET(nn.Module):
     def __init__(
-        self, in_ch=3, out_ch=1, features=[64, 128, 256, 512],
+        self, in_ch=3, out_ch=6, features=[64, 128, 256, 512],
     ):
         super(UNET, self).__init__()
         self.ups = nn.ModuleList()
@@ -64,12 +64,12 @@ class UNET(nn.Module):
         return self.final_conv(x)
     
 def test():
-    x = torch.randn((3, 1, 160, 160))
-    model = UNET(in_ch=1, out_ch=1)
+    x = torch.randn((3, 3, 160, 160))
+    model = UNET(in_ch=3, out_ch=6)
     pred = model(x)
     print(pred.shape)
     print(x.shape)
-    assert pred.shape == x.shape
+    assert pred.shape == (3, 6, 160, 160)
         
 if __name__ == "__main__":
     test()
