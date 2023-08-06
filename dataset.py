@@ -2,6 +2,8 @@ import os
 from PIL import Image
 from torch.utils.data import Dataset
 import numpy as np
+from skimage.util.shape import view_as_windows
+
 
 class Data(Dataset):
     def __init__(self, image_dir, label_dir, transform=None):
@@ -16,7 +18,7 @@ class Data(Dataset):
     def __getitem__(self, index):
         img_path = os.path.join(self.image_dir, self.images[index])
         label_path = os.path.join(self.label_dir, self.images[index].replace("_IRRG.tif","_label.tif"))
-        image = np.array(Image.open(img_path).convert("RGB"))
+        image = np.array(Image.open(img_path).convert("IRRG"))
         label = np.array(Image.open(label_path).convert("RGB"), dtype=np.float64)
         
         if self.transform is not None:
