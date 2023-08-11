@@ -10,7 +10,7 @@ class Data(Dataset):
         self.image_dir = image_dir
         self.label_dir = label_dir
         self.transform = transform
-        self.images = os.listdir(image_dir)
+        self.image_filenames = [filename for filename in os.listdir(images_dir) if filename.endswith('.tif')]
         
     def __len__(self):
         return len(self.images)
