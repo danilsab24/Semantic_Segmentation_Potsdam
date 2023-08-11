@@ -16,33 +16,18 @@ class Data(Dataset):
         return len(self.images)
     
     def __getitem__(self, index):
-        img_path = os.path.join(self.image_dir, self.images[index])
-        label_path = os.path.join(self.label_dir, self.images[index])
-        image = np.array(Image.open(img_path))
-        label = np.array(Image.open(label_path).convert("RGB"), dtype=np.uint8)
+        image_path = os.path.join(self.images_dir, self.image_filenames[idx])
+        label_filename = self.image_filenames[idx].replace("_IRRG", "_label")
+        label_path = os.path.join(self.labels_dir, label_filename)
         
-        # Define class mappings based on RGB values
-        class_mapping = {
-            (255, 255, 255): 0,  # Impervious surfaces
-            (0, 0, 255): 1,      # Building
-            (0, 255, 255): 2,    # Low vegetation
-            (0, 255, 0): 3,      # Tree
-            (255, 255, 0): 4,    # Car
-            (255, 0, 0): 5      # Clutter/background
-        }
+        image = Image.open(image_path)
+        label = Image.open(label_path)
         
-        # Convert RGB label to class indices
-        label_indices = np.zeros(label.shape[:2], dtype=np.uint8)
-        for rgb, class_idx in class_mapping.items():
-            mask = np.all(label == np.array(rgb), axis=-1)
-            label_indices[mask] = class_idx
+        if self.transform:
+            image = self.transform(image)
+            label = self.transform(label)
         
-        if self.transform is not None:
-            augmentations = self.transform(image=image, label=label_indices)
-            image = augmentations["image"]
-            label_indices = augmentations["label"]
-        
-        return image, label_indices
+        return image, label
 
 
 
