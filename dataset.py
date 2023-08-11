@@ -17,7 +17,7 @@ class Data(Dataset):
     
     def __getitem__(self, index):
         image_path = os.path.join(self.images_dir, self.image_filenames[idx])
-        label_filename = self.image_filenames[idx].replace("_IRRG", "_label")
+        label_filename = self.image_filenames[index].replace("_IRRG", "_label")
         label_path = os.path.join(self.labels_dir, label_filename)
         
         image = Image.open(image_path)
