@@ -17,7 +17,7 @@ class Data(Dataset):
     
     def __getitem__(self, index):
         img_path = os.path.join(self.image_dir, self.images[index])
-        label_path = os.path.join(self.label_dir, self.images[index].replace("_IRRG.tif","_label.tif"))
+        label_path = os.path.join(self.label_dir, self.images[index])
         image = np.array(Image.open(img_path))
         label = np.array(Image.open(label_path).convert("RGB"), dtype=np.uint8)
         
