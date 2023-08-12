@@ -3,7 +3,7 @@ from PIL import Image
 from torch.utils.data import Dataset
 import numpy as np
 
-class Data(Dataset):
+class MyData(Dataset):
     def __init__(self, data_root, target_root, transform=None):
         self.data_root = data_root
         self.target_root = target_root
