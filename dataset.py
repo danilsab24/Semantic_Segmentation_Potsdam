@@ -5,12 +5,12 @@ import numpy as np
 
 # Define the class mapping
 class_mapping = {
-    (255, 255, 255): 0,  # Impervious surfaces
-    (0, 0, 255): 1,      # Building
-    (0, 255, 255): 2,    # Low vegetation
-    (0, 255, 0): 3,      # Tree
-    (255, 255, 0): 4,    # Car
-    (255, 0, 0): 5      # Clutter/background
+        0 : (255, 255, 255), # Impervious surfaces (white)
+        1 : (0, 0, 255),     # Buildings (blue)
+        2 : (0, 255, 255),   # Low vegetation (cyan)
+        3 : (0, 255, 0),     # Trees (green)
+        4 : (255, 255, 0),   # Cars (yellow)
+        5 : (255, 0, 0),     # Clutter (red)
 }
 
 invert_mapping = {v: k for k, v in class_mapping.items()}
