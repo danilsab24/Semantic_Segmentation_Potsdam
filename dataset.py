@@ -48,7 +48,7 @@ class MyData(Dataset):
             data_image = self.transform(data_image)
             target_image = self.transform(target_image)
         
-        target_array = convert_from_color(np.array(target_image))
+        #target_array = convert_from_color(np.array(target_image))
             
         return data_image, target_image
 
