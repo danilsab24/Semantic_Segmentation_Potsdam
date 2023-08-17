@@ -15,7 +15,7 @@ class_mapping = {
 
 invert_mapping = {v: k for k, v in class_mapping.items()}
 
-def convert_from_color(arr_3d, palette=invert_palette):
+def convert_from_color(arr_3d, palette=invert_mapping):
     """ RGB-color encoding to grayscale labels """
     arr_2d = np.zeros((arr_3d.shape[0], arr_3d.shape[1]), dtype=np.uint8)
 
