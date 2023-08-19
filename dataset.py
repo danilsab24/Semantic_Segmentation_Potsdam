@@ -20,8 +20,8 @@ class MyData(Dataset):
         data_path = os.path.join(self.data_root, self.data_filenames[idx])
         target_path = os.path.join(self.target_root, self.data_filenames[idx])
         
-        data_image = Image.open(data_path).convert('RGB')
-        target_image = Image.open(target_path).convert('L')  # Keep as RGB for multi-class
+        data_image = np.array(Image.open(data_path).convert("RGB"))
+        target_image = np.array(Image.open(target_image).convert("L"), dtype=np.float32)
         
         if self.transform:
             data_image = self.transform(data_image)
