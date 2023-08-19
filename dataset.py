@@ -23,7 +23,7 @@ class MyData(Dataset):
         data_image = np.array(Image.open(data_path).convert("RGB"))
         target_image = np.array(Image.open(target_image).convert("L"), dtype=np.float32)
         
-        if self.transform:
+        if self.transform is not None:
             data_image = self.transform(data_image)
             target_image = self.transform(target_image)
             
