@@ -21,7 +21,7 @@ class MyData(Dataset):
         target_path = os.path.join(self.target_root, self.data_filenames[idx])
         
         data_image = np.array(Image.open(data_path).convert("RGB"))
-        target_image = np.array(Image.open(target_image).convert("L"), dtype=np.float32)
+        target_image = np.array(Image.open(target_path).convert("L"), dtype=np.float32)
         
         if self.transform is not None:
             data_image = self.transform(data_image)
