@@ -7,7 +7,7 @@ https://drive.google.com/file/d/1-12sjYBESSG-TklPLVEKi26BYPIYqCHa/view?usp=drive
 ## Model 2 state (Patches 250x250)
 https://drive.google.com/file/d/1N6jfy4jbBGCsZfR9OejgB8aaGMb-ipOY/view?usp=drive_link
 ## Model 0 state (Patches 240x240)
-https://drive.google.com/file/d/1x2dXGr73cbVETytIgI7IUHeUmk7fbhEn/view?usp=drive_link
+https://drive.google.com/file/d/1mi0ZNQbHE4PS1FAn0bGbI_41rFmvgR0c/view?usp=sharing
 ## Model 1 state (Patches 240x240)
 https://drive.google.com/file/d/1--3YuPPUAroLZUWGP3okJ96gEDXFiSYj/view?usp=drive_link
 ## Model 2 state (Patches 240x240)
